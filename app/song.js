@@ -10,6 +10,11 @@ app.factory('SongText', function ()
 app.controller('NewWordCtrl', function ($scope, SongText)
 {
     $scope.data = SongText;
+    $scope.replaceWord = function(text, word, newWord){
+        console.log(text.replace(word,newWord));
+        return text.split(word).join(newWord);
+
+    }
 });
 
 app.controller('SongCtrl', function ($scope, SongText)
