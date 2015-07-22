@@ -7,20 +7,20 @@
 
 <body ng-app="app">
 <div class="container text-center">
-    <div class="page-header">
+    <div class="page-header" data-ng-model="data.message">
         <h1>Share data </h1>
     </div>
-    <div class="row">
+    <div class="row" ng-controler="LeftCtrl">
         <div class="col-md-4">
             <label>
-                <input id="left" type="text" class="form-control" maxlength="10">
+                <input id="left" type="text" class="form-control" maxlength="10" data-ng-model="direction">
             </label>
 
             <h3 class="well-sm bg-warning">{{direction || "LEFT"}}</h3>
         </div>
-        <div class="col-md-offset-4 col-md-4">
+        <div class="col-md-offset-4 col-md-4" ng-controler="RightCtrl">
             <label>
-                <input id="right" type="text" class="form-control" maxlength="10">
+                <input id="right" type="text" class="form-control" maxlength="10" data-ng-model="direction">
             </label>
 
             <h3 class="well-sm bg-success">{{direction || "RIGHT"}}</h3>
