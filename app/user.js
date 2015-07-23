@@ -29,4 +29,6 @@ app.factory('Users', function ()
 app.controller('UserCtrl', function ($scope, Users)
 {
     $scope.users = Users;
+    $scope.limit=15;
+
 });
