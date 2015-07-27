@@ -26,9 +26,24 @@ app.factory('Users', function ()
     return Users;
 });
 
+
+
 app.controller('UserCtrl', function ($scope, Users)
 {
     $scope.users = Users;
-    $scope.limit=15;
+    $scope.limit = 15;
+
+    $scope.predicate = 'id';
+    $scope.reverse = true;
+    $scope.reverseSort = function(predicate) {
+        if ($scope.predicate === predicate) {
+            $scope.reverse = !$scope.reverse;
+        } else {
+            $scope.reverse = false;
+        }
+        $scope.predicate = predicate;
+    };
+
+
 
 });

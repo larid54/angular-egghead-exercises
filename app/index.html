@@ -6,7 +6,8 @@
 </head>
 
 <body ng-app="app">
-<div class="container" ng-controller="UserCtrl">
+<div class="container" ng-controller="UserCtrl as alias">
+    <pre>Sorting predicate = {{predicate}}; reverse = {{reverse}}</pre>
     <div class="page-header">
         <h1>List of
             <small>users</small>
@@ -30,14 +31,19 @@
         <table id="users" class="table table-hover table-bordered">
             <thead>
             <tr>
-                <th class="text-center"><a href="" ng-click="choice = 'id'>Id</a></th>
-                <th class="text-center"><a href="" ng-click="choice = 'username'">UserName</a></th>
-                <th class="text-center"><a href="" ng-click="choice = 'fullName'">Full Name</a></th>
-                <th class="text-center"><a href="" ng-click="choice = 'gender'">Gender</a></th>
+                <th class="text-center"><a href="" ng-click="reverseSort  ('id')">Id</a></th>
+                <span class="sortorder" ng-show="reverseSort === 'id'" ng-class="{reverse:reverse}"></span>
+                <th class="text-center"><a href="" ng-click="reverseSort  ('username')">UserName</a></th>
+                <span class="sortorder" ng-show="reverseSort === 'username'" ng-class="{reverse:reverse}"></span>
+                <th class="text-center"><a href="" ng-click="reverseSort  ('fullName')">Full Name</a></th>
+                <span class="sortorder" ng-show="reverseSort === 'fullName'" ng-clas
+                      s="{reverse:reverse}"></span>
+                <th class="text-center"><a href="" ng-click="reverseSort  ('gender')">Gender</a></th>
+                <span class="sortorder" ng-show="reverseSort === 'gender'" ng-class="{reverse:reverse}"></span>
             </tr>
             </thead>
             <tbody>
-            <tr class="text-center" ng-repeat="user in users.list | filter: searchUser |  limitTo:limit" >
+            <tr class="text-center" ng-repeat="user in users.list | filter: searchUser   | orderBy:predicate:reverse |limitTo:limit">
                 <td>{{user.id}}</td>
                 <td>{{user.username}}</td>
                 <td>{{user.fullName}}</td>

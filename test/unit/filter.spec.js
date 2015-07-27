@@ -31,7 +31,7 @@ describe('user', function ()
 
         it('should set choice to the name of the column you clicked', function ()
         {
-            expect(scope.choice).toEqual('username');
+            expect(scope.predicate).toEqual('username');
         });
     });
 
