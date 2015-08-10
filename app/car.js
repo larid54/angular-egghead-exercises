@@ -68,6 +68,21 @@ app.controller('CarCtrl', function (partsList, $timeout)
         $timeout(function ()
         {
             //complete function
+            //if (ctrl.lists !== undefined){
+            //    if(ctrl.lists.enable === true || ctrl.carPart.enable === true){
+            //        ctrl.returnMessage = 'This part is available and is very cheap';
+            //        console.log(ctrl.carPart)
+            //    }
+            //    else{
+            //        ctrl.returnMessage = 'This part is NOT available and is very expensive...'
+            //    }
+            //}
+            if(partsList.set(ctrl.carPart)){
+                ctrl.returnMessage = 'This part is available and is very cheap';
+            }
+            else{
+                ctrl.returnMessage = 'This part is NOT available and is very expensive...'
+            }
 
             ctrl.result = true;
         }, 10);
@@ -76,6 +91,15 @@ app.controller('CarCtrl', function (partsList, $timeout)
     {
         $timeout(function ()
         {
+
+            if (ctrl.lists !== undefined){
+                ctrl.lists.enable = true;
+                console.log(ctrl.lists.enable = true);
+                if(ctrl.lists.enable === true){
+                    ctrl.returnMessage = 'This part is available and is very cheap';
+                }
+            }
+
             //complete function
 
             ctrl.result = true;
