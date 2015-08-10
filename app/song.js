@@ -15,11 +15,17 @@ songApp.factory('Song', function ()
     };
 });
 
-songApp.controller('SongCtrl', function (Song)
-{
-    var ctrl = this;
-    ctrl.author = Song.author;
-    ctrl.title = Song.title;
-    ctrl.sing = Song.sing();
-    ctrl.fake = Song.fake();
+songApp.controller('SongCtrl', function ($injector){
+
+
+    {
+        $injector.invoke(function(Song) {
+
+                ctrl.author = Song.author,
+                ctrl.title = Song.title,
+                ctrl.sing = Song.sing(),
+                ctrl.fake = Song.fake()
+        })
+    }
+
 });
