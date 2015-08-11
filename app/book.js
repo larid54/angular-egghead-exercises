@@ -11,6 +11,7 @@ bookApp.controller('BookCtrl', function ($scope)
 
 bookApp.directive('bookTitle', function ()
 {
+    ;
     return {
         restrict: 'E', scope: {
             title: '@'
