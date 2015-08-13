@@ -20,10 +20,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr><!--here add ng-repeat-start -->
+            <tr ng-repeat-start ="user in view.users.list" ng-click="view.toggle($index)"><!--here add ng-repeat-start -->
+
                 <!--here display name and lastName-->
+                <td>{{user.name}}</td>
+                <td>{{user.lastName}}</td>
             </tr>
-            <tr><!--hera add ng-repeat-end  -->
+            <tr ng-repeat-end=""><!--hera add ng-repeat-end  -->
+
                 <td colspan="2" ng-if="user.enable">
                     <!--here display country-->
                     Country: <span class="text-success"> {{user.country}}</span>
